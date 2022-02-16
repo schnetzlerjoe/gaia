@@ -505,27 +505,48 @@ func NewGaiaApp(
 	// CanWithdrawInvariant invariant.
 	// NOTE: staking module is required if HistoricalEntries param > 0
 	app.mm.SetOrderBeginBlockers(
-		upgradetypes.ModuleName,
 		capabilitytypes.ModuleName,
-		minttypes.ModuleName,
+		authtypes.ModuleName,
+		banktypes.ModuleName,
 		distrtypes.ModuleName,
-		slashingtypes.ModuleName,
-		evidencetypes.ModuleName,
 		stakingtypes.ModuleName,
-		liquiditytypes.ModuleName,
+		slashingtypes.ModuleName,
+		govtypes.ModuleName,
+		minttypes.ModuleName,
+		crisistypes.ModuleName,
 		ibchost.ModuleName,
+		genutiltypes.ModuleName,
+		evidencetypes.ModuleName,
+		ibctransfertypes.ModuleName,
 		icatypes.ModuleName,
 		intertxtypes.ModuleName,
-	)
-	app.mm.SetOrderEndBlockers(
 		crisistypes.ModuleName,
 		govtypes.ModuleName,
-		stakingtypes.ModuleName,
-		liquiditytypes.ModuleName,
 		feegrant.ModuleName,
-		authz.ModuleName,
+		upgradetypes.ModuleName,
+		paramstypes.ModuleName,
+	)
+	app.mm.SetOrderEndBlockers(
+		capabilitytypes.ModuleName,
+		authtypes.ModuleName,
+		banktypes.ModuleName,
+		distrtypes.ModuleName,
+		stakingtypes.ModuleName,
+		slashingtypes.ModuleName,
+		govtypes.ModuleName,
+		minttypes.ModuleName,
+		crisistypes.ModuleName,
+		ibchost.ModuleName,
+		genutiltypes.ModuleName,
+		evidencetypes.ModuleName,
+		ibctransfertypes.ModuleName,
 		icatypes.ModuleName,
 		intertxtypes.ModuleName,
+		crisistypes.ModuleName,
+		govtypes.ModuleName,
+		feegrant.ModuleName,
+		upgradetypes.ModuleName,
+		paramstypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -546,12 +567,14 @@ func NewGaiaApp(
 		ibchost.ModuleName,
 		genutiltypes.ModuleName,
 		evidencetypes.ModuleName,
-		liquiditytypes.ModuleName,
 		ibctransfertypes.ModuleName,
-		feegrant.ModuleName,
-		authz.ModuleName,
 		icatypes.ModuleName,
 		intertxtypes.ModuleName,
+		crisistypes.ModuleName,
+		govtypes.ModuleName,
+		feegrant.ModuleName,
+		upgradetypes.ModuleName,
+		paramstypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
