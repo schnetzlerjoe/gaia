@@ -32,6 +32,7 @@ import (
 	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/vesting"
+	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 	authzkeeper "github.com/cosmos/cosmos-sdk/x/authz/keeper"
 	authzmodule "github.com/cosmos/cosmos-sdk/x/authz/module"
@@ -525,6 +526,9 @@ func NewGaiaApp(
 		feegrant.ModuleName,
 		upgradetypes.ModuleName,
 		paramstypes.ModuleName,
+		authz.ModuleName,
+		liquiditytypes.ModuleName,
+		vestingtypes.ModuleName,
 	)
 	app.mm.SetOrderEndBlockers(
 		capabilitytypes.ModuleName,
@@ -547,6 +551,9 @@ func NewGaiaApp(
 		feegrant.ModuleName,
 		upgradetypes.ModuleName,
 		paramstypes.ModuleName,
+		authz.ModuleName,
+		liquiditytypes.ModuleName,
+		vestingtypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -575,6 +582,9 @@ func NewGaiaApp(
 		feegrant.ModuleName,
 		upgradetypes.ModuleName,
 		paramstypes.ModuleName,
+		authz.ModuleName,
+		liquiditytypes.ModuleName,
+		vestingtypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
